@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #Link to websequencediagram: https://www.websequencediagrams.com/?lz=dGl0bGUgU3VibWl0dGluZyBhIE5ldyBOb3RlCgpicm93c2VyLT5zZXJ2ZXI6IEhUVFAgUE9TVCBodHRwczovL2Z1bGxzdGFjay1leGFtcGxlYXBwLmhlcm9rdWFwcC5jb20vbmV3X25vdGUKAEAGLS0-AFEHOiBIVE1MIENvZGUgMzAyCgpub3RlIG92ZXIgAGoHACwHIHJlZGlyZWN0cyAAgQwHIGJhY2sgdG8gbm90ZXMgcGFnZQplbmQACgUAgSAYR0UAgQkub3RlcwCBGBwAIUdtYWluLmNzAFcUABIJAB9LagBQGWpzAIJ2DACDHAgAg30IIHJ1bnMganMgY29kZSB0aGF0IHJlcXVlc3RzIEpTT04gZGF0YSBmcm9tAIM2BwCCQFBkYXRhLmpzb24AhDUTABIKAIQxE2pzb24gY29udGVudCBsb29rcyBsaWtlIFt7AA4IOiAiAIUFBWlzIGVhc3kiLCBkYXRlOiAiMjAxOS0wNS0yMyIgfSwgLi4uXQCEXAsAghoTZXZlbnQgaGFuZGxlciBub3cAgjEGAIIqBWNyZWF0ZXMAhSwHbGlzdCBhbmQgYXBwZW5kcyBpdCB0bwCEUwsAhUUKCg&s=napkin
 
 browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
@@ -31,37 +30,3 @@ end note
 note over browser:
 event handler now runs that creates notes list and appends it to HTML Code
 end note
-=======
-#Link to websequencediagram: https://www.websequencediagrams.com/?lz=dGl0bGUgU3VibWl0dGluZyBhIE5ldyBOb3RlCgpicm93c2VyLT5zZXJ2ZXI6IEhUVFAgUE9TVCBodHRwczovL2Z1bGxzdGFjay1leGFtcGxlYXBwLmhlcm9rdWFwcC5jb20vbmV3X25vdGUKAEAGLS0-AFEHOiBIVE1MIENvZGUgMzAyCgpub3RlIG92ZXIgAGoHACwHIHJlZGlyZWN0cyAAgQwHIGJhY2sgdG8gbm90ZXMgcGFnZQplbmQACgUAgSAYR0UAgQkub3RlcwCBGBwAIUdtYWluLmNzAFcUABIJAB9LagBQGWpzAIJ2DACDHAgAg30IIHJ1bnMganMgY29kZSB0aGF0IHJlcXVlc3RzIEpTT04gZGF0YSBmcm9tAIM2BwCCQFBkYXRhLmpzb24AhDUTABIKAIQxE2pzb24gY29udGVudCBsb29rcyBsaWtlIFt7AA4IOiAiAIUFBWlzIGVhc3kiLCBkYXRlOiAiMjAxOS0wNS0yMyIgfSwgLi4uXQCEXAsAghoTZXZlbnQgaGFuZGxlciBub3cAgjEGAIIqBWNyZWF0ZXMAhSwHbGlzdCBhbmQgYXBwZW5kcyBpdCB0bwCEUwsAhUUKCg&s=napkin
-
-browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
-server-->browser: HTML Code 302
-
-note over server:
-server redirects browser back to notes page
-end note
-
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
-server-->browser: HTML Code
-
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
-server-->browser: main.css
-
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
-server-->browser: main.js
-
-note over browser:
-browser runs js code that requests JSON data from server
-end note
-
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
-server-->browser: data.json
-
-note over server:
-json content looks like [{ content: "HTML is easy", date: "2019-05-23" }, ...]
-end note
-
-note over browser:
-event handler now runs that creates notes list and appends it to HTML Code
-end note
->>>>>>> b0110922b7b3d9fa5363b4f47af1bcc3fcf0c361

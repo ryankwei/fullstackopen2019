@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #Link to websequencediagram https://www.websequencediagrams.com/?lz=dGl0bGUgTG9hZGluZyAvbm90ZXMgb24gU1BBCgpicm93c2VyLT5zZXJ2ZXI6IEhUVFAgR0VUIGh0dHBzOi8vZnVsbHN0YWNrLWV4YW1wbGVhcHAuaGVyb2t1YXBwLmNvbQBNBgoAPAYtLT4ATQc6IEhUTUwgQ29kZQAhR21haW4uY3MAVxQAEgkAH0tqAFAZanMKCm5vdGUgb3ZlciAAgWgIAIJFCCBydW5zIGpzIGNvZGUgdGhhdCByZXF1ZXN0cyBKU09OIGRhdGEgZnJvbSAAgnAGCmVuZCBub3QAgWBIZGF0YS5qc29uAIMBEwASCgCBNwsAg3YHCmpzb24gY29udGVudCBsb29rcyBsaWtlIFt7AA4IOiAiAINRBWlzIGVhc3kiLCBkYXRlOiAiMjAxOS0wNS0yMyIgfSwgLi4uXQCBTAsAghoTZXZlbnQgaGFuZGxlciBub3cAgjEGAIIqBWNyZWF0ZXMAgg8FcyBsaXN0IGFuZCBhcHBlbmRzIGl0IHRvAIRUCiAocmVkcmF3TgCFVQVmdW5jdGlvbikAgksL&s=napkin
 
 browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
@@ -24,30 +23,3 @@ end note
 note over browser:
 event handler now runs that creates notes list and appends it to HTML Code (redrawNotes function)
 end note
-=======
-#Link to websequencediagram https://www.websequencediagrams.com/?lz=dGl0bGUgTG9hZGluZyAvbm90ZXMgb24gU1BBCgpicm93c2VyLT5zZXJ2ZXI6IEhUVFAgR0VUIGh0dHBzOi8vZnVsbHN0YWNrLWV4YW1wbGVhcHAuaGVyb2t1YXBwLmNvbQBNBgoAPAYtLT4ATQc6IEhUTUwgQ29kZQAhR21haW4uY3MAVxQAEgkAH0tqAFAZanMKCm5vdGUgb3ZlciAAgWgIAIJFCCBydW5zIGpzIGNvZGUgdGhhdCByZXF1ZXN0cyBKU09OIGRhdGEgZnJvbSAAgnAGCmVuZCBub3QAgWBIZGF0YS5qc29uAIMBEwASCgCBNwsAg3YHCmpzb24gY29udGVudCBsb29rcyBsaWtlIFt7AA4IOiAiAINRBWlzIGVhc3kiLCBkYXRlOiAiMjAxOS0wNS0yMyIgfSwgLi4uXQCBTAsAghoTZXZlbnQgaGFuZGxlciBub3cAgjEGAIIqBWNyZWF0ZXMAgg8FcyBsaXN0IGFuZCBhcHBlbmRzIGl0IHRvAIRUCiAocmVkcmF3TgCFVQVmdW5jdGlvbikAgksL&s=napkin
-
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
-server-->browser: HTML Code
-
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
-server-->browser: main.css
-
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
-server-->browser: main.js
-
-note over browser:
-browser runs js code that requests JSON data from server
-end note
-
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
-server-->browser: data.json
-
-note over server:
-json content looks like [{ content: "HTML is easy", date: "2019-05-23" }, ...]
-end note
-
-note over browser:
-event handler now runs that creates notes list and appends it to HTML Code (redrawNotes function)
-end note
->>>>>>> b0110922b7b3d9fa5363b4f47af1bcc3fcf0c361
