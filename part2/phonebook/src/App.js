@@ -39,7 +39,7 @@ const App = () => {
           })
           .catch(error => {
             setErrorMessage(
-              `${newName} was already removed from server`
+              error.response.data
             )
             setTimeout(()=> {
               setErrorMessage(null)
@@ -61,6 +61,16 @@ const App = () => {
           setNewNum('')
           setMessage(`Added ${returnedObj.name}`)
           setTimeout(() => { setMessage(null) }, 5000)
+        })
+        .catch(error => {
+          setErrorMessage(
+            error.response.data
+          )
+          setTimeout(()=> {
+            setErrorMessage(null)
+          }, 5000)
+          setNewName('')
+          setNewNum('')
         })
     }
   }
