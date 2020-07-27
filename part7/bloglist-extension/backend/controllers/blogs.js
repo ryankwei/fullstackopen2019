@@ -5,6 +5,7 @@ const User = require('../models/user')
 
 blogRouter.get('/', async (request, response) => {
   const blogs = await Blog.find({}).populate('user', { username: 1, name: 1})
+  console.log(blogs)
   response.json(blogs.map(blog => blog.toJSON()))
 })
 blogRouter.get('/:id', async (request, response) => {
@@ -13,8 +14,8 @@ blogRouter.get('/:id', async (request, response) => {
   response.json(blog.populate("user", { username: 1, name: 1 }).toJSON())
 })
 blogRouter.post('/', async (request, response) => {
-  console.log(request.token)
-  console.log(process.env.SECRET)
+  //console.log(request.token)
+  //console.log(process.env.SECRET)
   const decodedToken = jwt.verify(request.token, process.env.SECRET)
   if(!request.token || !decodedToken.id) {
     return response.status(401).json({ error: 'invalid or missing token'})
@@ -23,12 +24,15 @@ blogRouter.post('/', async (request, response) => {
     return response.status(400).json( { error: 'content missing' } )
   }
   const user = await User.findById(decodedToken.id)
+  console.log(user)
+  console.log(decodedToken.id)
   const blog = new Blog({
     title: request.body.title,
     author: request.body.author,
     url: request.body.url,
     likes: request.body.likes || 0,
-    user: user._id
+    user: user._id,
+    comments: request.body.comments || []
   })
 
   const result = await blog.save()
@@ -44,6 +48,8 @@ blogRouter.delete('/:id', async (request, response) => {
   }
   const user = await User.findById(decodedToken.id)
   const blog = await Blog.findById(request.params.id)
+  console.log(user)
+  console.log(blog)
   if( blog.user.toString() === user._id.toString()) {
     await blog.remove()
     user.blogs = user.blogs.filter(b => b.id.toString() !== request.params.id.toString())
@@ -59,15 +65,23 @@ blogRouter.put('/:id', async (request, response) => {
   if(!request.body.title || !request.body.author || !request.body.url) {
     return response.status(400).json( { error: 'content missing' } )
   }
-  const blog = {
-    title: request.body.title,
-    author: request.body.author,
-    url: request.body.url,
-    likes: request.body.likes || 0
-  }
-
+  // const blog = {
+  //   title: request.body.title,
+  //   author: request.body.author,
+  //   url: request.body.url,
+  //   likes: request.body.likes || 0,
+  // }
+  const blog = request.body
   const updatedObj = await Blog.findByIdAndUpdate(request.params.id, blog, { new: true }).populate("user", { username: 1, name: 1 })
   response.json(updatedObj.toJSON())
 })
+blogRouter.post('/:id/comments', async (request, response) => {
+  if(!request.body.comment) {
+    return response.status(400).json({ error: 'content missing'})
+  }
 
+  const blog = request.body
+  const updatedObj = await Blog.findByIdAndUpdate(request.params.id, blog, { new: true }).populate("user", { username: 1, name: 1 })
+  response.json(updatedObj.toJSON())
+})
 module.exports = blogRouter

@@ -35,4 +35,18 @@ const update = (id, newObject) => {
   return request.then(response => response.data)
 }
 
-export default { getAll, setToken, create, update, deleteBlog }
+const like = async (id) => {
+  const req = await axios.get(baseUrl + `/${id}`)
+  const obj = { ...req.data, likes: req.data.likes + 1 }
+  const res = await axios.put(baseUrl + `/${id}`, obj)
+  return res.data
+}
+
+const comment = async (comment, id) => {
+  const req = await axios.get(baseUrl + `/${id}`)
+  const obj = { ...req.data, comments: [comment, ...req.data.comments] }
+  const res = await axios.post(baseUrl + `/${id}/comments`, obj)
+  return res.data
+}
+
+export default { getAll, setToken, create, update, deleteBlog, like, comment }
